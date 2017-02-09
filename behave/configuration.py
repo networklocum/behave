@@ -98,6 +98,10 @@ options = [
      dict(metavar="PATTERN", dest='include_re',
           help="Only run feature files matching regular expression PATTERN.")),
 
+    (('--force-color',),
+      dict(action='store_true', dest='force_color',
+          help="""Force using ANSI color escapes.""")),
+
     (('--no-junit',),
      dict(action='store_false', dest='junit',
           help="Don't output JUnit-compatible reports.")),
@@ -494,6 +498,7 @@ class Configuration(object):
         show_timings=True,
         stdout_capture=True,
         stderr_capture=True,
+        force_color=False,
         log_capture=True,
         logging_format='%(levelname)s:%(name)s:%(message)s',
         logging_level=logging.INFO,
